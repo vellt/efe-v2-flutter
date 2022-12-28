@@ -14,6 +14,6 @@ const apiBooksUrl = '$apiBaseUrl/index.json';
 
 //használom a book-ban
 //olyan formátomut használ ami http hivashoz megfelelő
-String getApiRouteOfBook(String book) {
+String getFullURLFromBookRoute(String book) {
   return '$apiBaseUrl/$book/index.json';
 }

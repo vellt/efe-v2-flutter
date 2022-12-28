@@ -1,10 +1,10 @@
 class Audio {
-  late String id;
+  late int id;
   late String name;
   late String voiceUrl;
   late bool isFavorite;
-  late String lessionID;
-  late String bookID;
+  late int lessionID;
+  late int bookID;
 
   Audio({
     required this.id,
