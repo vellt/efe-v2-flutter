@@ -62,18 +62,34 @@ class LessonsApi {
     return _audios[index];
   }
 
-  List<Audio> getAudios() {
-    return _audios;
+  List<Audio> getAudios({Lesson? lesson, bool? isFavorite}) {
+    List<Audio> temp = [];
+    if (lesson != null) {
+      for (var audio in _audios) {
+        if (audio.lessionID == lesson.id) temp.add(audio);
+      }
+    }
+    temp = [];
+    if (isFavorite != null) {
+      for (var audio in _audios) {
+        if (audio.isFavorite) temp.add(audio);
+      }
+    }
+    return (lesson == null && isFavorite == null) ? _audios : temp;
   }
 
   Lesson? getLesson({int? index, String? code}) {
-    if (index != null) return _lessons[index];
+    Lesson? temp;
+    if (index != null) temp = _lessons[index];
     if (code != null) {
       for (var lesson in _lessons) {
-        if (lesson.codeName == code) return lesson;
+        if (lesson.codeName == code) {
+          temp = lesson;
+          break;
+        }
       }
     }
-    return null;
+    return temp;
   }
 
   List<Lesson> getLessons() {
