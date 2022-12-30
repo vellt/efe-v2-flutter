@@ -2,4 +2,4 @@
 
 - [x] Sill in progress..
 
-![efev2](C:\Users\Lenovo\Documents\GitHub\efe-v2-flutter\efev2.png)
+![efev2](https://raw.githubusercontent.com/vellt/efe-v2-flutter/main/efev2.png)
