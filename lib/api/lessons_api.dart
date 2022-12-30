@@ -30,7 +30,7 @@ class LessonsApi {
           String lessonTitle = lesson["customTitle"] ?? item["data"]["title"];
 
           _lessons.add(Lesson(
-            id: lessonIndex++,
+            id: lessonIndex,
             name: lessonTitle,
             codeName: lessonCodeName,
           ));
@@ -49,6 +49,7 @@ class LessonsApi {
               lessionID: lessonIndex,
             ));
           }
+          lessonIndex++;
         }
       }
     }

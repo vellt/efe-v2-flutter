@@ -4,13 +4,15 @@ import 'package:get/get.dart';
 
 class BooksController extends GetxController {
   List<Book> _books = [];
-
   Rx<int> selectedIndex = 0.obs;
 
-  Book getBook({required int index}) {
-    return _books[index];
+  /// If you dont give any parameters, this function will be returning with the current selected Book
+  Book getBook({int? index}) {
+    if (index != null) return _books[index];
+    return _books[selectedIndex.value];
   }
 
+  /// This function is returning with all of efe's book
   List<Book> getBooks() {
     return _books;
   }
@@ -18,13 +20,12 @@ class BooksController extends GetxController {
   @override
   Future onInit() async {
     super.onInit();
+    //selectedIndex.value = 0; todo: must be loading the recent book
     BooksApi booksApi = BooksApi();
     _books = await booksApi.init();
-
     ever(
       selectedIndex,
-      (_) => print(
-          "$_ has been changed: ${getBook(index: selectedIndex.value).name}"),
+      (_) => print("the current book: ${getBook().name}"),
     );
   }
 }

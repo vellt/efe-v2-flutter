@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.efe_v2_flutter">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="efe_v2_flutter"
         android:name="${applicationName}"
