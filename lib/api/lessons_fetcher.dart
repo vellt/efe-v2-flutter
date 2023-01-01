@@ -4,12 +4,12 @@ import 'package:efe_v2_flutter/models/audio.dart';
 import 'package:efe_v2_flutter/models/book.dart';
 import 'package:efe_v2_flutter/models/lesson.dart';
 
-class LessonsFetch {
+class LessonsFetcher {
   final List<Audio> _audios = [];
   final List<Lesson> _lessons = [];
   late Book _book;
 
-  LessonsFetch(Book book) {
+  LessonsFetcher(Book book) {
     _book = Book(
       id: book.id,
       name: book.name,
@@ -55,44 +55,12 @@ class LessonsFetch {
     }
   }
 
-  Book getBook() {
-    return _book;
+  /// After initialization you should use
+  List<Audio> getAudios() {
+    return _audios;
   }
 
-  Audio getAudio({required int index}) {
-    return _audios[index];
-  }
-
-  List<Audio> getAudios({Lesson? lesson, bool? isFavorite}) {
-    List<Audio> temp = [];
-    if (lesson != null) {
-      for (var audio in _audios) {
-        if (audio.lessionID == lesson.id) temp.add(audio);
-      }
-    }
-    temp = [];
-    if (isFavorite != null) {
-      for (var audio in _audios) {
-        if (audio.isFavorite) temp.add(audio);
-      }
-    }
-    return (lesson == null && isFavorite == null) ? _audios : temp;
-  }
-
-  Lesson? getLesson({int? index, String? code}) {
-    Lesson? temp;
-    if (index != null) temp = _lessons[index];
-    if (code != null) {
-      for (var lesson in _lessons) {
-        if (lesson.codeName == code) {
-          temp = lesson;
-          break;
-        }
-      }
-    }
-    return temp;
-  }
-
+  /// After initialization you should use
   List<Lesson> getLessons() {
     return _lessons;
   }

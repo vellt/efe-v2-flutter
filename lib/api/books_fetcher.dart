@@ -2,7 +2,7 @@ import 'package:efe_v2_flutter/api/networking.dart';
 import 'package:efe_v2_flutter/api/secret.dart' as secret;
 import 'package:efe_v2_flutter/models/book.dart';
 
-class BooksFetch {
+class BooksFetcher {
   Future<List<Book>> init() async {
     List<Book> temp = [];
     NetworkHelper networkHelper = NetworkHelper(Uri.parse(secret.apiBooksUrl));

@@ -1,15 +1,15 @@
-import 'package:efe_v2_flutter/api/books_fetch.dart';
+import 'package:efe_v2_flutter/api/books_fetcher.dart';
 import 'package:efe_v2_flutter/models/book.dart';
 import 'package:get/get.dart';
 
 class BooksController extends GetxController {
   List<Book> _books = [];
-  Rx<int> selectedIndex = 0.obs;
+  Rx<int> indexOfSelectedAudio = 0.obs;
 
   /// If you dont give any parameters, this function will be returning with the current selected Book
   Book getBook({int? index}) {
     if (index != null) return _books[index];
-    return _books[selectedIndex.value];
+    return _books[indexOfSelectedAudio.value];
   }
 
   /// This function is returning with all of efe's book
@@ -20,11 +20,11 @@ class BooksController extends GetxController {
   @override
   Future onInit() async {
     super.onInit();
-    //selectedIndex.value = 0; todo: must be loading the recent book
-    BooksFetch booksApi = BooksFetch();
-    _books = await booksApi.init();
+    //indexOfSelectedAudio.value = 0; todo: must be loading the recent book
+    BooksFetcher booksFetcher = BooksFetcher();
+    _books = await booksFetcher.init();
     ever(
-      selectedIndex,
+      indexOfSelectedAudio,
       (_) => print("the current book: ${getBook().name}"),
     );
   }

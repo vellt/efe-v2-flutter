@@ -61,7 +61,8 @@ class BookScreen extends StatelessWidget {
                       return TextButton(
                         style:
                             TextButton.styleFrom(foregroundColor: Colors.grey),
-                        onPressed: () => contr.selectedIndex.value = index,
+                        onPressed: () =>
+                            contr.indexOfSelectedAudio.value = index,
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 4.sp, vertical: 1.sp),
@@ -71,13 +72,15 @@ class BookScreen extends StatelessWidget {
                                   style: TextStyle(
                                       fontSize: 14.sp,
                                       color:
-                                          (contr.selectedIndex.value == index)
+                                          (contr.indexOfSelectedAudio.value ==
+                                                  index)
                                               ? Colors.white
                                               : Colors.white30)),
-                              trailing: (contr.selectedIndex.value == index)
-                                  ? Icon(Icons.check,
-                                      color: Colors.white, size: 18.sp)
-                                  : null,
+                              trailing:
+                                  (contr.indexOfSelectedAudio.value == index)
+                                      ? Icon(Icons.check,
+                                          color: Colors.white, size: 18.sp)
+                                      : null,
                             ),
                           ),
                         ),
@@ -89,18 +92,18 @@ class BookScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-            floatingActionButton:
-                (snapshot.connectionState == ConnectionState.done)
-                    ? FloatingActionButton(
-                        backgroundColor: Colors.blue,
-                        child: const Icon(
-                          CupertinoIcons.chevron_forward,
-                          color: Colors.white,
-                        ),
-                        onPressed: () => Get.to(LessonScreen(contr.getBook()),
-                            transition: Transition.cupertino),
-                      )
-                    : null,
+            floatingActionButton: (snapshot.connectionState ==
+                    ConnectionState.done)
+                ? FloatingActionButton(
+                    backgroundColor: Colors.blue,
+                    child: const Icon(
+                      CupertinoIcons.chevron_forward,
+                      color: Colors.white,
+                    ),
+                    onPressed: () => Get.to(() => LessonScreen(contr.getBook()),
+                        transition: Transition.cupertino),
+                  )
+                : null,
           );
         });
   }
