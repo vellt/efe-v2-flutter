@@ -1,4 +1,4 @@
-import 'package:efe_v2_flutter/api/books_api.dart';
+import 'package:efe_v2_flutter/api/books_fetch.dart';
 import 'package:efe_v2_flutter/models/book.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,7 @@ class BooksController extends GetxController {
   Future onInit() async {
     super.onInit();
     //selectedIndex.value = 0; todo: must be loading the recent book
-    BooksApi booksApi = BooksApi();
+    BooksFetch booksApi = BooksFetch();
     _books = await booksApi.init();
     ever(
       selectedIndex,

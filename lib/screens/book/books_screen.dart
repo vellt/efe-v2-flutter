@@ -1,4 +1,5 @@
 import 'package:efe_v2_flutter/controllers/books_controller.dart';
+import 'package:efe_v2_flutter/screens/lesson/lessons_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -96,12 +97,16 @@ class BookScreen extends StatelessWidget {
                           CupertinoIcons.chevron_forward,
                           color: Colors.white,
                         ),
-                        onPressed: () {
-                          //todo: navigate to the lesson view with contr.getBook()
-                        },
+                        onPressed: () => Get.to(LessonScreen(contr.getBook()),
+                            transition: Transition.cupertino),
                       )
                     : null,
           );
         });
   }
 }
+
+// todo: megcsinálni, mikor nincs internetkapcsolat
+// vlmi kifinomultabb megoldás kell amivel ellernőrzöm ha nem jött le adat
+// akk a floating button egy refresh-ként működjön, és kapjon hibaüzenetet
+// a felhasználó, vlmiért az emulátor nem engedi kikapcsolni a wifi-t :(

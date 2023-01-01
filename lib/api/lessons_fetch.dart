@@ -4,12 +4,12 @@ import 'package:efe_v2_flutter/models/audio.dart';
 import 'package:efe_v2_flutter/models/book.dart';
 import 'package:efe_v2_flutter/models/lesson.dart';
 
-class LessonsApi {
+class LessonsFetch {
   final List<Audio> _audios = [];
   final List<Lesson> _lessons = [];
   late Book _book;
 
-  LessonsApi(Book book) {
+  LessonsFetch(Book book) {
     _book = Book(
       id: book.id,
       name: book.name,
