@@ -92,18 +92,19 @@ class BookScreen extends StatelessWidget {
                       color: Colors.blue,
                     ),
                   ),
-            floatingActionButton: (snapshot.connectionState ==
-                    ConnectionState.done)
-                ? FloatingActionButton(
-                    backgroundColor: Colors.blue,
-                    child: const Icon(
-                      CupertinoIcons.chevron_forward,
-                      color: Colors.white,
-                    ),
-                    onPressed: () => Get.to(() => LessonScreen(contr.getBook()),
-                        transition: Transition.cupertino),
-                  )
-                : null,
+            floatingActionButton:
+                (snapshot.connectionState == ConnectionState.done)
+                    ? FloatingActionButton(
+                        backgroundColor: Colors.blue,
+                        child: const Icon(
+                          CupertinoIcons.chevron_forward,
+                          color: Colors.white,
+                        ),
+                        onPressed: () => Get.to(
+                            () => LessonsScreen(contr.getBook()),
+                            transition: Transition.cupertino),
+                      )
+                    : null,
           );
         });
   }

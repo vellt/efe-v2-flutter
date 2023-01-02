@@ -86,9 +86,12 @@ class LessonsController extends GetxController {
     //the init of the lessonsFetcher doesnt returned us the data because we need two list of data so we use two getters for this assignment
     _lessons = lessonsFetcher.getLessons();
     _audios = lessonsFetcher.getAudios();
+
     ever(
       indexOfSelectedLesson,
-      (_) => print("the current lesson: ${getLesson().name}"),
+      (_) {
+        //print("the current lesson: ${getLesson().name}");
+      },
     );
   }
 }
