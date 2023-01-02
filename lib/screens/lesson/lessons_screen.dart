@@ -19,7 +19,6 @@ class LessonsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //final lessonsController= Get.lazyPut(() => LessonsController(book));
     return FutureBuilder(
         future: lessonsController.onInit(),
         builder: (context, snapshot) {
@@ -55,7 +54,8 @@ class LessonsScreen extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(left: 20.sp, right: 80.sp),
+                            padding: EdgeInsets.only(
+                                left: 20.sp, right: 80.sp, bottom: 4.sp),
                             child: Align(
                               alignment: Alignment.topLeft,
                               child: Text(
@@ -111,21 +111,25 @@ class LessonsScreen extends StatelessWidget {
                                           fillColor: Colors.white10,
                                           focusedBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15),
+                                                  BorderRadius.circular(30),
                                               borderSide: BorderSide(
                                                   color: Colors.blue,
                                                   width: 1.5.sp)),
                                           enabledBorder: OutlineInputBorder(
                                               borderRadius:
-                                                  BorderRadius.circular(15)),
+                                                  BorderRadius.circular(30)),
                                           contentPadding: EdgeInsets.only(
-                                            left: 15.sp,
-                                            right: 10.sp,
-                                            top: 14.sp,
-                                            bottom: 12.sp,
+                                            left: 20.sp,
+                                            right: 20.sp,
+                                            top: 12.sp,
+                                            bottom: 10.sp,
                                           ),
-                                          suffixIcon: const Icon(Icons.search,
-                                              color: Colors.grey)),
+                                          suffixIcon: Padding(
+                                            padding:
+                                                EdgeInsets.only(right: 13.sp),
+                                            child: const Icon(Icons.search,
+                                                color: Colors.grey),
+                                          )),
                                     );
                                   });
                                 }),
