@@ -29,6 +29,7 @@ class LessonsController extends GetxController {
     return _audios[indexOfSelectedAudio.value];
   }
 
+  /*
   /// this returned with all of favorites audio which is inside of the CURRENT book, when you set isFavorite as value true, and the lesson is null.
   /// If you dont give any lessons as parameters, this will give all of the book's audios.
   List<Audio> getAudios({Lesson? lesson, bool? isFavorite}) {
@@ -53,6 +54,18 @@ class LessonsController extends GetxController {
       return tempOfFavorites;
     }
     //lesson null, isFavorite null-->all of the audios which are in the book
+    return _audios;
+  }
+   */
+
+  List<Audio> getAudios({required Lesson lesson, bool? isFavorite}) {
+    List<Audio> audiosOfTheCurrentLesson = [];
+    for (var audio in _audios) {
+      if (audio.lessionID == lesson.id) {
+        audiosOfTheCurrentLesson.add(audio);
+      }
+    }
+    return audiosOfTheCurrentLesson;
     return _audios;
   }
 

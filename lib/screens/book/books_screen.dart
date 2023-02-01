@@ -62,7 +62,7 @@ class BookScreen extends StatelessWidget {
                         style:
                             TextButton.styleFrom(foregroundColor: Colors.grey),
                         onPressed: () =>
-                            contr.indexOfSelectedAudio.value = index,
+                            contr.indexOfSelectedBook.value = index,
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 4.sp, vertical: 1.sp),
@@ -71,13 +71,12 @@ class BookScreen extends StatelessWidget {
                               title: Text(contr.getBook(index: index).name,
                                   style: TextStyle(
                                       fontSize: 14.sp,
-                                      color:
-                                          (contr.indexOfSelectedAudio.value ==
-                                                  index)
-                                              ? Colors.white
-                                              : Colors.white30)),
+                                      color: (contr.indexOfSelectedBook.value ==
+                                              index)
+                                          ? Colors.white
+                                          : Colors.white30)),
                               trailing:
-                                  (contr.indexOfSelectedAudio.value == index)
+                                  (contr.indexOfSelectedBook.value == index)
                                       ? Icon(Icons.check,
                                           color: Colors.white, size: 18.sp)
                                       : null,

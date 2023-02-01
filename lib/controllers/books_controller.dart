@@ -4,12 +4,12 @@ import 'package:get/get.dart';
 
 class BooksController extends GetxController {
   List<Book> _books = [];
-  Rx<int> indexOfSelectedAudio = 0.obs;
+  Rx<int> indexOfSelectedBook = 0.obs;
 
   /// If you dont give any parameters, this function will be returning with the current selected Book
   Book getBook({int? index}) {
     if (index != null) return _books[index];
-    return _books[indexOfSelectedAudio.value];
+    return _books[indexOfSelectedBook.value];
   }
 
   /// This function is returning with all of efe's book
@@ -24,7 +24,7 @@ class BooksController extends GetxController {
     BooksFetcher booksFetcher = BooksFetcher();
     _books = await booksFetcher.init();
     ever(
-      indexOfSelectedAudio,
+      indexOfSelectedBook,
       (_) => print("the current book: ${getBook().name}"),
     );
   }
