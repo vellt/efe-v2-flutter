@@ -1,5 +1,5 @@
 import 'package:efe_v2_flutter/controllers/books_controller.dart';
-import 'package:efe_v2_flutter/screens/lesson/lessons_screen.dart';
+import 'package:efe_v2_flutter/views/book_details_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

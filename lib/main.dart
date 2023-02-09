@@ -1,4 +1,5 @@
-import 'package:efe_v2_flutter/screens/book/books_screen.dart';
+import 'package:efe_v2_flutter/views/book_chooser_new_view.dart';
+import 'package:efe_v2_flutter/views/book_chooser_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -16,12 +17,12 @@ class MyApp extends StatelessWidget {
         return GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Efe v2 Client',
-          home: BookScreen(),
-          theme: ThemeData.dark().copyWith(
+          home: BookChooserView(),
+          theme: ThemeData.light().copyWith(
             appBarTheme: const AppBarTheme(
               systemOverlayStyle: SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent, // Status bar
-                statusBarIconBrightness: Brightness.light,
+                statusBarIconBrightness: Brightness.dark,
               ),
             ),
           ),
