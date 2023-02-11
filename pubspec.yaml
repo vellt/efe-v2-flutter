@@ -40,6 +40,7 @@ dependencies:
   get: 4.5.1
   sizer: ^2.0.15
   text_scroll: ^0.1.2
+  status_bar_control: ^3.2.1
 
 dev_dependencies:
   flutter_test:

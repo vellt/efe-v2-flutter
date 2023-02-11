@@ -1,4 +1,4 @@
-import 'package:efe_v2_flutter/controllers/books_controller.dart';
+import 'package:efe_v2_flutter/views/book_chooser/book_chooser_controller.dart';
 import 'package:efe_v2_flutter/views/book_details_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +7,7 @@ import 'package:sizer/sizer.dart';
 
 class BookScreen extends StatelessWidget {
   BookScreen({Key? key}) : super(key: key);
-  BooksController contr = Get.put(BooksController());
+  BookChooserController contr = Get.put(BookChooserController());
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +61,7 @@ class BookScreen extends StatelessWidget {
                       return TextButton(
                         style:
                             TextButton.styleFrom(foregroundColor: Colors.grey),
-                        onPressed: () =>
-                            contr.indexOfSelectedBook.value = index,
+                        onPressed: () => contr.selectBook(index),
                         child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 4.sp, vertical: 1.sp),
@@ -71,15 +70,14 @@ class BookScreen extends StatelessWidget {
                               title: Text(contr.getBook(index: index).name,
                                   style: TextStyle(
                                       fontSize: 14.sp,
-                                      color: (contr.indexOfSelectedBook.value ==
-                                              index)
-                                          ? Colors.white
-                                          : Colors.white30)),
-                              trailing:
-                                  (contr.indexOfSelectedBook.value == index)
-                                      ? Icon(Icons.check,
-                                          color: Colors.white, size: 18.sp)
-                                      : null,
+                                      color:
+                                          (contr.indexOfSelectedBook == index)
+                                              ? Colors.white
+                                              : Colors.white30)),
+                              trailing: (contr.indexOfSelectedBook == index)
+                                  ? Icon(Icons.check,
+                                      color: Colors.white, size: 18.sp)
+                                  : null,
                             ),
                           ),
                         ),
